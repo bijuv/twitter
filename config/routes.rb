@@ -16,7 +16,11 @@ Twitter::Application.routes.draw do
   #   resources :products
   
   resources :friendships 
-
+  resources :tusers do
+    collection do
+      get 'show'
+    end
+  end
   # Sample resource route with options:
   #   resources :products do
   #     member do
