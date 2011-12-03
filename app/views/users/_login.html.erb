@@ -1,0 +1,13 @@
+    <div id="users">  
+      <% @users.each do |user| %>  
+    <div id="user">  
+          <% if user.user != current_user.user %>  
+            <%=h user.user %>  
+            <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>  
+            link_to "Make Friends", users_path %>  
+  			link_to "My Friends", { :controller => "users", :action => "show", :id => current_user } %>  
+          <% end %>  
+        </div>  
+      
+      <% end %>  
+    </div>
