@@ -1,19 +1,19 @@
-    <% form_tag(:controller => "posts", :action => "create") do %>  
+<div id='form'>    <%=form_tag(:controller => "posts", :action => "create") do %>  
       <%= label_tag(:message, "What are you doing?") %><br />  
       <%= text_area_tag(:message, nil, :size => "44x6") %><br />  
       <%= submit_tag("Post") %>  
     <% end %>  
-
+</div>
 <script>
-    $("#message").submit(function(){
+    /*$("#form").submit(function(){
     
     var form = $(this);
     var form_data = form.serialize();
     $.ajax({
       type  : "POST",
-      beforeSend : function(xhr){
-      },
-      dataType : "json",
+      /*beforeSend : function(xhr){
+      },*/
+     /* dataType : "json",
       url : form.attr("action"),
       data : form_data,
       success : function() {
@@ -21,7 +21,7 @@
         window.location = "http://localhost:3000/"
       }, error: function(jqXHR, textStatus, errorThrown){
         alert("ERROR: " + textStatus);
-        window.location = "http://localhost:3000/queries/new"
+        window.location = "http://localhost:3000/"
       }
     });
 

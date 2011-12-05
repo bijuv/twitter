@@ -1,17 +1,17 @@
 <div id="tabs">
   <ul>
-    <li><a href="#tabs-1"> My Friends</a></li>
-    <li><a href="#tabs-2"> Wall</a></li>
+    <li><a href="#tabs-1"> Wall</a></li>
+    <li><a href="#tabs-2"> Friends</a></li>
     <li><a href="#tabs-3"> My Posts</a></li>
-    <li><a href="#tabs-4"> Work in</a></li>
+    <li><a href="#tabs-4"> Users</a></li>
   </ul>
-  <div id="tabs-1"><%= render :partial =>"tusers/friend"%></div>
-  <div id="tabs-2">
+  <div id="tabs-1">
   	<%= render :partial => "message_form" %>
  	  <%= render :partial => @posts %> 
   </div>
-  <div id="tabs-3"> Posts posted by me to my Friends </div>
-  <div id="tabs-4"> Content for Screenshots</div>
+  <div id="tabs-2"><%= render :partial =>"tusers/friend"%></div>
+  <div id="tabs-3"> <%= render :partial =>"posts/mypost"%> </div>
+  <div id="tabs-4"> <%= render :partial => "tusers/show"%></div>
 </div>
 
 
