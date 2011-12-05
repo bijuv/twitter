@@ -10,7 +10,7 @@ def index
   end   
   
   def create  
-    @post = Post.create(:message => params[:message],:by => current_user)  
+    @post = Post.create(:message => params[:message],:by => current_user.id)  
     respond_to do |format|  
       if @post.save  
         format.js  { render :json => @post, :status => :created }

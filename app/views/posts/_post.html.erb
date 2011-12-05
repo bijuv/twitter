@@ -1,3 +1,9 @@
-    <p><b>Posted <%= time_ago_in_words(post.created_at) %> ago</b></p>  
-
-    <p>By: <%=post.by%>&nbsp<%= post.message %></p>  
+    <%if current_user.id == post.to %>
+    	<p><b>Posted <%= time_ago_in_words(post.created_at) %> ago</b></p>  
+   		<b>By<% @users.each do |s|%>
+					<% if post.by==s.id %>
+						<%= s.user%></b>
+					<%end%>
+				<%end%> :
+				<%= post.message %></p>  
+	<%end%>

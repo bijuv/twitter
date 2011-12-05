@@ -1,6 +1,6 @@
-<div id='form'>    <%=form_tag(:controller => "posts", :action => "create") do %>  
+<div id='form'> <%=form_tag(:controller => "posts", :action => "create") do %>  
       <%= label_tag(:message, "What are you doing?") %><br />  
-      <%= text_area_tag(:message, nil, :size => "44x6") %><br />  
+      <%= text_area_tag(:message, nil, :size => "30x4") %><br />  
       <%= submit_tag("Post") %>  
     <% end %>  
 </div>

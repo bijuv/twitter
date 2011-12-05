@@ -4,22 +4,12 @@
 <ul>
 	<li>
 		<%= post.message %>
-		to <%= post.to %>
+		to <% @users.each do |s|%>
+				<% if post.to==s.id %>
+					<b><%= s.user%></b>
+				<%end%>
+			<%end%>
 	</li>
 	<%end%>
 </ul>
-<%end%>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    
+<%end%>    

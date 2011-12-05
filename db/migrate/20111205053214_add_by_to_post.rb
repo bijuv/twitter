@@ -6,6 +6,6 @@ class AddByToPost < ActiveRecord::Migration
 
   def self.down
     remove_column :posts, :by
-    remove_column :posts, :by
+    remove_column :posts, :to
   end
 end
