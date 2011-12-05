@@ -1,23 +1,22 @@
 class PostsController < ApplicationController
   #skip_before_filter :authorize
 def index  
-    @users= User.all
+    @user= current_user
     @posts = Post.all(:order => "created_at DESC")  
     respond_to do |format|  
       format.html  
     end  
-  end  
+  end   
   
   def create  
-    @post = Post.create(:message => params[:message])  
+    @post = Post.create(:message => params[:message],:by => current_user)  
     respond_to do |format|  
       if @post.save  
-        flash[:notice] = "Message posted"  
-        #============DO CHANGES HERE redirect_to '/posts'
+        redirect_to :back # solve the issue
       else  
-        flash[:notice] = "Message failed to save."  
-        #============ DO CHANGES HERE redirect_to '/posts'
+        redirect_to :back #solve the issue
       end  
     end  
   end  
 end
+

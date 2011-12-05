@@ -1,2 +1,3 @@
     <p><b>Posted <%= time_ago_in_words(post.created_at) %> ago</b></p>  
-    <p><%= post.message %></p>  
+
+    <p>By: <%=post.by%>&nbsp<%= post.message %></p>  

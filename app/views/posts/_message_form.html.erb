@@ -1,5 +1,30 @@
     <% form_tag(:controller => "posts", :action => "create") do %>  
       <%= label_tag(:message, "What are you doing?") %><br />  
       <%= text_area_tag(:message, nil, :size => "44x6") %><br />  
-      <%= submit_tag("Update") %>  
+      <%= submit_tag("Post") %>  
     <% end %>  
+
+<script>
+    $("#message").submit(function(){
+    
+    var form = $(this);
+    var form_data = form.serialize();
+    $.ajax({
+      type  : "POST",
+      beforeSend : function(xhr){
+      },
+      dataType : "json",
+      url : form.attr("action"),
+      data : form_data,
+      success : function() {
+        alert("Message Successfully posted");
+        window.location = "http://localhost:3000/"
+      }, error: function(jqXHR, textStatus, errorThrown){
+        alert("ERROR: " + textStatus);
+        window.location = "http://localhost:3000/queries/new"
+      }
+    });
+
+    return false;
+  });
+ </script>
