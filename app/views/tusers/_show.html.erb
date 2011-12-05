@@ -1,0 +1,10 @@
+  
+      <% @users.each do |user| %>  
+         <p> <% if user.user != current_user.user %>  
+            <%=user.user %>  
+            <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+            </p>
+            <!-- link_to "Make Friends", users_path %>  
+  			link_to "My Friends", { :controller => "users", :action => "show", :id => current_user } %>   -->
+          <% end %>  
+        <% end %>  

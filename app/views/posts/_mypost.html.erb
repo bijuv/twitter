@@ -1,0 +1,25 @@
+<h2> Posts Posted by me </h2>
+<% @posts.each do |post|%>
+	<%if post.by == current_user.id %>
+<ul>
+	<li>
+		<%= post.message %>
+		to <%= post.to %>
+	</li>
+	<%end%>
+</ul>
+<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
