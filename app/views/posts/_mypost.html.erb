@@ -1,15 +1,7 @@
-<h2> Posts Posted by me </h2>
-<% @posts.each do |post|%>
-	<%if post.by == current_user.id %>
-<ul>
-	<li>
-		<%= post.message %>
-		to <% @users.each do |s|%>
-				<% if post.to==s.id %>
-					<b><%= s.user%></b>
-				<%end%>
-			<%end%>
-	</li>
-	<%end%>
-</ul>
-<%end%>    
+
+<% @user.posts_received.each do |p| %>
+	<br> <b> <%= User.find_by_id(p.by).user %>: </b>
+	<%= p.message%>
+	</br>
+<%end%>
+

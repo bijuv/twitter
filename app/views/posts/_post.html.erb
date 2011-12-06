@@ -1,9 +1,8 @@
-    <%if current_user.id == post.to %>
-    	<p><b>Posted <%= time_ago_in_words(post.created_at) %> ago</b></p>  
-   		<b>By<% @users.each do |s|%>
-					<% if post.by==s.id %>
-						<%= s.user%></b>
-					<%end%>
-				<%end%> :
-				<%= post.message %></p>  
-	<%end%>
+<h3> Posts Posted by <%= @user.user %> </h3>
+<% @user.posts_posted.each do |p| %>
+	<br> <b><%= User.find_by_id(p.to).user %></b>
+	<%= p.message%> <%= link_to "Destroy",:controller => 'posts', :action => 'destroy',:id => p %>
+
+	</br>
+<%end%>
+

@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
 
   has_many :friendships  
   has_many :friends, :through => :friendships  
+
+  def posts_posted
+  	Post.where(:by => self.id)
+  end
+
+  def posts_received
+  	Post.where(:to => self.id)
+  end
+  
 end

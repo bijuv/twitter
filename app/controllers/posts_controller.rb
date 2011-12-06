@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
   #skip_before_filter :authorize
 def index  
-    @users= User.all
     @user= current_user
-    @posts = Post.all(:order => "created_at DESC")  
+    #@posts = Post.all(:order => "created_at DESC")  
     respond_to do |format|  
       format.html  
     end  
@@ -23,5 +22,13 @@ def index
       end  
     end  
   end  
+
+  def destroy
+    @post=Post.find_by_id(params[:id])
+    @post.destroy
+      respond_to do |format|
+        format.html{ redirect_to("/",:notice => 'Deleted')}
+      end
+  end
 end
 

@@ -1,4 +1,4 @@
-  
+    <%@users=User.all%>
       <% @users.each do |user| %>  
          <p> <% if user.user != current_user.user %>  
             <%=user.user %>  
